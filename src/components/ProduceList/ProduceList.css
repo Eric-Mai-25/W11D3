@@ -13,6 +13,7 @@
   border: 1px solid gray;
   border-radius: 16px;
   padding: 16px;
+  color: white;
 }
 
 .produce-list li:last-child {
@@ -30,4 +31,8 @@
 button.selected {
   color: white;
   background-color: red;
+}
+
+body{
+  background-color: black;
 }
