@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { removeFromCart } from '../../store/cart';
+import { removeFromCart,addToCart , minusFromCart} from '../../store/cart';
 
 function CartItem({ item }) {
   const [count, setCount] = useState(item.count);
@@ -8,6 +8,14 @@ function CartItem({ item }) {
 
   const handleClick = () =>{
     dispatch(removeFromCart(item.id))
+  }
+
+  const handleAddToCart =()=>{
+    dispatch(addToCart(item.id))
+  }
+
+  const handleMinus = ()=>{
+    dispatch(minusFromCart(item.id))
   }
 
   useEffect(() => {
@@ -24,11 +32,13 @@ function CartItem({ item }) {
         />
         <button
           className="cart-item-button"
+          onClick={handleAddToCart}
         >
           +
         </button>
         <button
           className="cart-item-button"
+          onClick={handleMinus}
         >
           -
         </button>
