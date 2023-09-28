@@ -1,6 +1,7 @@
 const ADD_TO_CART = "ADD_TO_CART";
 const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 const MINUS_FROM_CART = "MINUS_FROM_CART";
+const EMPTY_CART = "EMPTY_CART"
 
 export const addToCart = (itemId) => {
   return {
@@ -8,6 +9,12 @@ export const addToCart = (itemId) => {
     itemId: itemId,
   };
 };
+
+export const emptyCart = ()=>{
+    return {
+        type: EMPTY_CART,
+    }
+}
 
 export const minusFromCart = (itemId) => {
   return {
@@ -57,6 +64,8 @@ export default function cartReducer(state = {}, action) {
     case REMOVE_FROM_CART:
       delete nextState[action.itemId];
       return nextState;
+    case EMPTY_CART:
+        return {}
     default:
       return state;
   }
